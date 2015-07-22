@@ -1,0 +1,58 @@
+<!--
+@license
+Copyright (c) 2015 Peter Kaske <p.kaske@gmail.com>. All rights reserved.
+This code may only be used under the MIT license found at http://opensource.org/licenses/MIT.
+Or see the LICENSE file that comes with this code.
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="lazy-dom-repeat-behavior.html">
+
+<!--
+This component is basically a wrapper for the `lazy-dom-repeat-behavior`.
+See it's commentary for more information what it does.
+
+This component should be configurable the same way as `<template is="dom-repeat">` is,
+but it only stamps it's list when the `populate` method is called.
+
+## Simple example
+<lazy-dom-repeat items='[ { "name": "item 1", { "name": "item 2" } } ]' id="lazy">
+  <template>
+    <span>{{item.name}}</span>
+  </template>
+</lazy-dom-repeat>
+
+<script>
+  var lazy = document.getElementById('lazy');
+
+  // Actually render the items.
+  lazy.populate();
+</script>
+-->
+
+<dom-module id="lazy-dom-repeat">
+  <style>
+    :host {
+      display: block;
+    }
+  </style>
+  <template>
+    <content id="templateContent"></content>
+  </template>
+  <script>
+    Polymer({
+      is: 'lazy-dom-repeat',
+
+      behaviors: [
+        Polymer.LazyDomRepeatBehavior
+      ],
+
+      populate: function() {
+        var itemTemplate = Polymer.dom(this).querySelector('template');
+        if (itemTemplate) {
+          this.setTemplate(itemTemplate);
+        }
+      }
+    });
+  </script>
+</dom-module>
