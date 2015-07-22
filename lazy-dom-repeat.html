@@ -13,9 +13,10 @@ This component is basically a wrapper for the `lazy-dom-repeat-behavior`.
 See it's commentary for more information what it does.
 
 This component should be configurable the same way as `<template is="dom-repeat">` is,
-but it only stamps it's list when the `populate` method is called.
+but it only stamps it's items when the `populate` method is called.
 
 ## Simple example
+```html
 <lazy-dom-repeat items='[ { "name": "item 1", { "name": "item 2" } } ]' id="lazy">
   <template>
     <span>{{item.name}}</span>
@@ -28,6 +29,7 @@ but it only stamps it's list when the `populate` method is called.
   // Actually render the items.
   lazy.populate();
 </script>
+```
 -->
 
 <dom-module id="lazy-dom-repeat">
