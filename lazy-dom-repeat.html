@@ -43,7 +43,7 @@ but it only stamps it's items when the `populate` method is called.
     }
   </style>
   <template>
-    <content id="templateContent"></content>
+    <content id="templateContent" select="template"></content>
   </template>
   <script>
     Polymer({
@@ -54,9 +54,9 @@ but it only stamps it's items when the `populate` method is called.
       ],
 
       populate: function() {
-        var itemTemplate = Polymer.dom(this).querySelector('template');
-        if (itemTemplate) {
-          this.setTemplate(itemTemplate);
+        var itemTemplate = Polymer.dom(this.$.templateContent).getDistributedNodes();
+        if (itemTemplate.length > 0) {
+          this.setTemplate(itemTemplate[0]);
         }
       }
     });
