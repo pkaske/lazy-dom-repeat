@@ -32,7 +32,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var lazy = document.getElementById('lazy');
 
     // Actually render the items.
-    lazy.populate();
+    setTimeout(function() {
+      lazy.populate();
+    }, 2000);
   </script>
 </body>
 </html>
