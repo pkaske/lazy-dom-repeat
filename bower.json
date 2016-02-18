@@ -1,0 +1,28 @@
+{
+  "name": "lazy-dom-repeat",
+  "version": "1.0.1",
+  "authors": [
+    "Peter Kaske <p.kaske@gmail.com>"
+  ],
+  "description": "Lazy alternative for dom-repeat that must be activated before it stamps it's items. Build for Polymer.",
+  "license": "MIT",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "web-component",
+    "dom-repeat",
+    "list"
+  ],
+  "main": "lazy-dom-repeat.html",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
+  }
+}
